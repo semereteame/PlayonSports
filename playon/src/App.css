@@ -1,0 +1,16 @@
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.timeform {
+  float: right;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 812) {
+  .tbl {
+    width: 20% !important;
+
+  }
+}
