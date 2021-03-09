@@ -7,25 +7,21 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Moment from 'react-moment'
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Moment from "react-moment";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import "./table.css";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
-    fontSize:12,
-    textAlign:"center",
-    
-    
+    fontSize: 12,
+    textAlign: "center",
   },
   body: {
     fontSize: 11,
-   textAlign:"center",
-   
-    
+    textAlign: "center",
   },
 }))(TableCell);
-
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -35,9 +31,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-
-
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
@@ -46,32 +39,26 @@ const useStyles = makeStyles({
 
 export default function Tables({ tableData }) {
   const classes = useStyles();
-  console.log(tableData)
-  const matches = useMediaQuery('(min-width:600px)');
+  console.log(tableData);
+  const matches = useMediaQuery("(min-width:600px)");
   return (
-    <TableContainer className='tbl' component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell align="right">Key</StyledTableCell>
-            <StyledTableCell align="right">Headline</StyledTableCell>
-            <StyledTableCell align="right">Sub-headline</StyledTableCell>
-            <StyledTableCell align="right">Time</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {tableData.map((item) => (
-            <StyledTableRow>
-              <StyledTableCell align="right">{item.key}</StyledTableCell>
-              <StyledTableCell align="right">{item.headline}</StyledTableCell>
-              <StyledTableCell align="right">
-                {item.subheadline}
-              </StyledTableCell>
-              <StyledTableCell align="right"> <Moment parse='YYYY-MM-DD HH:mm' date={item.date}/></StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <table className="table">
+      <tr>
+        <th>key</th>
+        <th>Headline</th>
+        <th>SubHeadline</th>
+        <th>Time</th>
+      </tr>
+      {tableData.map((item) => (
+        <tr>
+          <td align="right">{item.key}</td>
+          <td align="right">{item.headline}</td>
+          <td align="right">{item.subheadline}</td>
+          <td align="right">
+            <Moment parse="YYYY-MM-DD HH:mm" date={item.date} />
+          </td>
+        </tr>
+      ))}
+    </table>
   );
 }

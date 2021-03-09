@@ -8,9 +8,14 @@
 .timeform {
   float: right;
 }
-@media only screen and (min-device-width: 375px) and (max-device-width: 812) {
+@media (max-width: 700px) {
   .tbl {
-    width: 20% !important;
-
+    object-fit: contain;
+  }
+.MuiInputBase-input{
+  width: 50%;
+}
+  .topitem {
+    display: block;
   }
 }

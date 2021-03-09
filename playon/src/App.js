@@ -49,6 +49,7 @@ function App() {
   };
   return (
     <div className="app">
+      <div className='topitem'>
       <FormControl>
         <Select
           variant="outlined"
@@ -84,9 +85,12 @@ function App() {
           onChange={handleDate}
         />
       </form>
+      </div>
       <div className='tbl'>
         <Table tableData={data} />
       </div>
+
+
     </div>
   );
 }
